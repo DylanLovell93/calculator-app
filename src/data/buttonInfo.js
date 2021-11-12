@@ -17,7 +17,7 @@ const buttonInfo = [
   {
     symbol: '÷',
     color: 'oper',
-    func: 'divide',
+    func: 'oper',
   },
   {
     symbol: 7,
@@ -37,7 +37,7 @@ const buttonInfo = [
   {
     symbol: 'X',
     color: 'oper',
-    func: 'multiply',
+    func: 'oper',
   },
   {
     symbol: 4,
@@ -57,7 +57,7 @@ const buttonInfo = [
   {
     symbol: '-',
     color: 'oper',
-    func: 'subtract',
+    func: 'oper',
   },
   {
     symbol: 1,
@@ -77,7 +77,7 @@ const buttonInfo = [
   {
     symbol: '+',
     color: 'oper',
-    func: 'add',
+    func: 'oper',
   },
   {
     symbol: 0,

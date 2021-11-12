@@ -7,14 +7,30 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      userInput: '0837',
+      userInput: [],
       previousInput: '',
+      currentInput: '',
     };
   }
 
+  oper = (event) => {
+    const { userInput, currentInput } = this.state;
+    this.setState({
+      userInput: [...userInput, currentInput, event.target.textContent],
+      currentInput: '',
+    });
+  };
+
+  input = (event) => {
+    this.setState({
+      currentInput: this.state.currentInput + event.target.textContent,
+    });
+  };
+
   clear = () => {
     this.setState({
-      userInput: '',
+      userInput: [],
+      currentInput: '',
     });
   };
 
@@ -22,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <Display state={this.state} />
-        <Inputs clear={this.clear} />
+        <Inputs clear={this.clear} input={this.input} oper={this.oper} />
       </div>
     );
   }

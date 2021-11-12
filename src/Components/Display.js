@@ -2,10 +2,14 @@ import { Component } from 'react';
 
 class Display extends Component {
   render() {
-    const { userInput } = this.props.state;
+    const { userInput, currentInput } = this.props.state;
     return (
       <div>
-        <p>{userInput ? userInput : '0'}</p>
+        <p>
+          {userInput.join(' ') || currentInput
+            ? userInput.join(' ') + ' ' + currentInput
+            : '0'}
+        </p>
       </div>
     );
   }
