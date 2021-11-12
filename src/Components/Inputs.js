@@ -1,12 +1,14 @@
 import { Component } from 'react';
 import Button from './Button';
+import buttonInfo from '../data/buttonInfo';
 
 class Inputs extends Component {
   render() {
     return (
       <div>
-        input test
-        <Button symbol="4" />
+        {buttonInfo.map((e) => (
+          <Button info={e} func={this.props[e.func]} />
+        ))}
       </div>
     );
   }

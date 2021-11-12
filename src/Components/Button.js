@@ -2,8 +2,13 @@ import { Component } from 'react';
 
 class Button extends Component {
   render() {
-    const { func, symbol } = this.props;
-    return <button onClick={func}>{symbol}</button>;
+    const { symbol } = this.props.info;
+    const func = this.props.func;
+    return (
+      <button className="Button" onClick={func}>
+        {symbol}
+      </button>
+    );
   }
 }
 

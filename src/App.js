@@ -7,16 +7,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      userInput: '',
+      userInput: '0837',
       previousInput: '',
     };
   }
 
+  clear = () => {
+    this.setState({
+      userInput: '',
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <Display />
-        <Inputs />
+        <Display state={this.state} />
+        <Inputs clear={this.clear} />
       </div>
     );
   }
