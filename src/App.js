@@ -15,9 +15,15 @@ class App extends Component {
 
   oper = (event) => {
     const { userInput, currentInput } = this.state;
+    const valid = (!userInput.slice(-1)[0] && currentInput) || currentInput;
+
     this.setState({
-      userInput: [...userInput, currentInput, event.target.textContent],
-      currentInput: '',
+      userInput: valid
+        ? [...userInput, currentInput, event.target.textContent]
+        : userInput.slice(-1)[0]
+        ? [...[...userInput].slice(0, -1), event.target.textContent]
+        : userInput,
+      currentInput: valid ? '' : currentInput,
     });
   };
 
