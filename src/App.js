@@ -13,9 +13,19 @@ class App extends Component {
     };
   }
 
+  negPos = () => {
+    const { currentInput } = this.state;
+    this.setState({
+      currentInput:
+        currentInput[0] === '-' ? currentInput.slice(1) : '-' + currentInput,
+    });
+  };
+
   oper = (event) => {
     const { userInput, currentInput } = this.state;
-    const valid = (!userInput.slice(-1)[0] && currentInput) || currentInput;
+    const valid =
+      ((!userInput.slice(-1)[0] && currentInput) || currentInput) &&
+      currentInput !== '-';
 
     this.setState({
       userInput: valid
@@ -28,8 +38,13 @@ class App extends Component {
   };
 
   input = (event) => {
+    const { currentInput } = this.state;
+    const input = event.target.textContent;
     this.setState({
-      currentInput: this.state.currentInput + event.target.textContent,
+      currentInput:
+        currentInput.includes('.') && input === '.'
+          ? currentInput
+          : currentInput + event.target.textContent,
     });
   };
 
@@ -44,7 +59,12 @@ class App extends Component {
     return (
       <div className="App">
         <Display state={this.state} />
-        <Inputs clear={this.clear} input={this.input} oper={this.oper} />
+        <Inputs
+          clear={this.clear}
+          input={this.input}
+          oper={this.oper}
+          negPos={this.negPos}
+        />
       </div>
     );
   }
