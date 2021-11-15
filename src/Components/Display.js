@@ -2,9 +2,10 @@ import { Component } from 'react';
 
 class Display extends Component {
   render() {
-    const { userInput, currentInput } = this.props.state;
+    const { userInput, currentInput, previousInput } = this.props.state;
     return (
       <div>
+        <p>{previousInput}</p>
         <p>
           {userInput.join(' ') || currentInput
             ? userInput.join(' ') + ' ' + currentInput

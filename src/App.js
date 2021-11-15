@@ -13,6 +13,16 @@ class App extends Component {
     };
   }
 
+  percent = () => {
+    const { currentInput } = this.state;
+    this.setState({
+      currentInput:
+        currentInput === '-'
+          ? currentInput
+          : (Number(currentInput) / 100).toString(),
+    });
+  };
+
   negPos = () => {
     const { currentInput } = this.state;
     this.setState({
@@ -64,6 +74,7 @@ class App extends Component {
           input={this.input}
           oper={this.oper}
           negPos={this.negPos}
+          percent={this.percent}
         />
       </div>
     );
