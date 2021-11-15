@@ -4,6 +4,9 @@ import Display from './Components/Display';
 import Inputs from './Components/Inputs';
 
 const calc = (input) => {
+  if (!input) {
+    return '0';
+  }
   let result = input;
   while (result.includes('X') || result.includes('÷')) {
     let index;
@@ -105,6 +108,9 @@ class App extends Component {
   equal = () => {
     const { currentInput, userInput } = this.state;
     const result = calc([...userInput, currentInput]);
+    if (isNaN(Number(userInput.slice(-1)[0])) && !currentInput) {
+      return;
+    }
 
     this.setState({
       previousInput: [...userInput, currentInput].join(' '),
