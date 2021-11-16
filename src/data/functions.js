@@ -39,7 +39,12 @@ const calc = (input) => {
 };
 
 const formatter = (input) => {
-  return input;
+  return input.map((element) => {
+    if (element.length < 4) {
+      return element;
+    }
+    return Number(element).toLocaleString('en-US');
+  });
 };
 
 export default { calc, formatter };

@@ -7,7 +7,7 @@ class Button extends Component {
     const { func } = this.props;
     const buttonClass = 'Button ' + color;
     return (
-      <button className={buttonClass} onClick={func}>
+      <button className={buttonClass} onClick={func} key={symbol}>
         {symbol}
       </button>
     );
