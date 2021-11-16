@@ -48,7 +48,7 @@ class App extends Component {
     super();
     this.state = {
       userInput: [],
-      previousInput: '',
+      previousInput: [],
       currentInput: '',
     };
   }
@@ -108,12 +108,15 @@ class App extends Component {
   equal = () => {
     const { currentInput, userInput } = this.state;
     const result = calc([...userInput, currentInput]);
-    if (isNaN(Number(userInput.slice(-1)[0])) && !currentInput) {
+    if (
+      (isNaN(Number(userInput.slice(-1)[0])) && !currentInput) ||
+      currentInput === '-'
+    ) {
       return;
     }
 
     this.setState({
-      previousInput: [...userInput, currentInput].join(' '),
+      previousInput: [...userInput, currentInput],
       userInput: [],
       currentInput: result,
     });

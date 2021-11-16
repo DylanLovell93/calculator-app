@@ -81,7 +81,7 @@ const buttonInfo = [
   },
   {
     symbol: 0,
-    color: 'num',
+    color: 'num double',
     func: 'input',
   },
   {

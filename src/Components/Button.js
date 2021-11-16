@@ -1,11 +1,13 @@
+import './Button.css';
 import { Component } from 'react';
 
 class Button extends Component {
   render() {
-    const { symbol } = this.props.info;
-    const func = this.props.func;
+    const { symbol, color } = this.props.info;
+    const { func } = this.props;
+    const buttonClass = 'Button ' + color;
     return (
-      <button className="Button" onClick={func}>
+      <button className={buttonClass} onClick={func}>
         {symbol}
       </button>
     );

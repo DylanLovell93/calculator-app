@@ -1,0 +1,25 @@
+.Button {
+  height: 50px;
+  font-size: 1em;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+  font-weight: bold;
+}
+
+.num {
+  background-color: rgb(70, 70, 70);
+  color: white;
+}
+.top {
+  background-color: skyblue;
+}
+
+.oper {
+  background-color: darkblue;
+  color: white;
+}
+
+.double {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}

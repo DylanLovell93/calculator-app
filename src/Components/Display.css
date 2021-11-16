@@ -1,0 +1,17 @@
+.Display {
+  padding: 5px;
+  background: rgb(70, 70, 70);
+  text-align: right;
+  color: white;
+  height: 75px;
+  border-radius: 5px;
+}
+.Display .Previous {
+  font-size: 12px;
+  margin-bottom: 1px;
+}
+
+.Display .Current {
+  font-size: 20px;
+  font-weight: bold;
+}
