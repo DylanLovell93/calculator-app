@@ -7,8 +7,8 @@ class Inputs extends Component {
   render() {
     return (
       <div className="Inputs">
-        {buttonInfo.map((e) => (
-          <Button info={e} func={this.props[e.func]} />
+        {buttonInfo.map((button) => (
+          <Button info={button} func={this.props[button.func]} />
         ))}
       </div>
     );
