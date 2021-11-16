@@ -8,10 +8,23 @@ class Display extends Component {
     const { userInput, currentInput, previousInput } = this.props.state;
     return (
       <div className="Display">
-        <p className="Previous">Ans = {formatter(previousInput).join(' ')}</p>
+        <p className="Previous">
+          Ans ={' '}
+          {formatter(previousInput).join(' ').length > 30
+            ? 'Ans too long'
+            : formatter(previousInput).join(' ')}
+        </p>
         <p className="Current">
           {userInput.join(' ') || currentInput
-            ? userInput.join(' ') + ' ' + formatter([currentInput]).join('')
+            ? (
+                formatter(userInput).join(' ') +
+                ' ' +
+                formatter([currentInput]).join('')
+              ).length > 20
+              ? 'Number too large'
+              : formatter(userInput).join(' ') +
+                ' ' +
+                formatter([currentInput]).join('')
             : '0'}
         </p>
       </div>
